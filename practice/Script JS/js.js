@@ -4,7 +4,7 @@ $(function(){
    var a='TOURifelle';
    var b='tour eiffel';
    //alert(jaro_winkler.distance("xer","auxers").val());
-   //alert('touvabien');
+   //alert('touvabien');;
 
 	
 	jaro_winkler.distance = function(a, b) {
