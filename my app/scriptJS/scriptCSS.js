@@ -38,7 +38,7 @@ function question(mymap) {
 	quest = "<h1 style='text-align:center;'>Test de culture générale</h1><br>";
 	quest += "<p style='text-align:center;''>"
 	//quest += tabObject[1].question;
-	quest += "Quel est le monument le plus haut de Paris (324 metres) ?</p><br/>";
+	quest += "Quel est le monument le plus haut de Paris (324 mètres) ?</p><br/>";
 	quest += reponse();
 	quest += bouton();
 	return quest;
@@ -58,13 +58,24 @@ function verif(r, reponse) {
 	if(r==reponse) {
 		alert("Bonne réponse");
 		$("#Quizz").empty();
-		q.innerHTML = "<div id='map' style='width: 900px; height: 500px; display:block; margin:auto; margin-top:12%;'></div>";
+		q.innerHTML = repquest();
+		$("#map").addClass("map");
 		carte();
 	}
 	else {
 		alert("Mauvaise réponse");
 		$("#textbox").val('');
 	}
+}
+
+function repquest() {
+	var v= "<div id='map' style=''></div>";
+	v += "<img src='https://img.icons8.com/flat-round/64/000000/arrow--v1.png' onclick='init();' style='right: 0; bottom:0; position:absolute; margin-bottom: 3%; margin-right:4%;'/>";
+	v += "<img src='https://img.icons8.com/bubbles/100/000000/restaurant.png' style='position:absolute; margin-top: 8%;'/>";
+	v+= "<img src='https://img.icons8.com/clouds/100/000000/shop.png' style='position:absolute; margin-top: 18%;'/>";
+	v+= "<img src='https://img.icons8.com/bubbles/100/000000/subway.png' style='position:absolute; margin-top: 28%;'/>";
+	v += "<img src='https://img.icons8.com/bubbles/100/000000/bed.png' style='position:absolute; margin-top: 38%;'/>"
+	return v;
 }
 
 function carte() {
@@ -78,7 +89,20 @@ function carte() {
 		tileSize: 512,
 		zoomOffset: -1
 	}).addTo(mymap);
+
+	var myIcon = L.icon({
+    	iconUrl: 'images/eiffel.png',
+    	iconSize:     [38, 38],
+		iconAnchor:   [22, 22],
+		popupAnchor:  [-3, -3]
+	});
+
+	L.marker([48.85829, 2.29446], {icon: myIcon}).addTo(mymap);
+
+	var circle = L.circle([48.8582620692546, 2.2944955763291], {
+	    color: 'moccasin',
+	    fillColor: 'rgb(255,250,205)',
+	    fillOpacity: 0.35,
+	    radius: 600
+	}).addTo(mymap);
 }
-
-
-
