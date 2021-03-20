@@ -1,0 +1,126 @@
+.p {
+	color: white;
+	transition : 0.5s;
+	font-family: Snell Roundhand, cursive;
+}
+
+.h1 {
+	color: white;
+	transition : 0.75s;
+}
+
+.body1 {
+	background-image : url('./images/question.png');
+	background-size : 100% 100%;
+	background-repeat : no-repeat; 
+	background-attachment : fixed;
+}
+
+.body2 {
+	background-image : url('./images/tableau.png');
+	background-size : 100% 100%;
+	background-repeat : no-repeat; 
+	background-attachment : fixed;
+}
+
+.quizz {
+	margin-top: 20%;
+	background-color: rgba(211,211,211, 0.5);
+	margin-left : 22%;
+	margin-right : 22%;
+	padding-top: 10px;
+	padding-bottom: 70px;
+	border-radius: 7px;
+}
+
+.btValider {
+	display:block; 
+	margin:auto; 
+	background-color:white; 
+	font-size:22px; 
+	color:green; 
+	border:1px solid green;
+	margin-top: 25px;
+}
+
+.textbox {
+	display:block; 
+	margin:auto; 
+	font-size:22px; 
+	text-align:center;
+	padding: 5px;
+	background: rgba(255,255,255, 0);
+	border: 1px solid white;
+	color: white;
+}
+
+.map {
+	position: absolute;
+	margin: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 3%;
+    width: 70%;
+    height: 65%;
+}
+
+@media(max-width: 590px) {
+	.p {
+		font-size: 17px;
+	}
+
+	.h1 {
+		margin-top: 45%;
+	}
+
+	.btValider {
+		font-size: 15px;
+	}
+
+	.textbox {
+		font-size: 15px;
+	}
+}
+
+@media(min-width: 591px) and (max-width: 992px) {
+	.p {
+		font-size: 22px;
+	}
+
+	.h1 {
+		margin-top: 25%;
+		font-size: 40px;
+	}
+
+	.btValider {
+		font-size: 17px;
+	}
+
+	.textbox {
+		font-size: 18px;
+	}
+}
+
+@media(min-width: 993px) and (max-width:1200px)  {
+	.p {
+		font-size: 25px;
+	}
+
+	.h1 {
+		font-size: 60px;
+		margin-top: 15%;
+	}
+}
+
+@media(min-width: 1201px){
+	.p {
+		font-size: 30px;
+	}
+
+	.h1 {
+		font-size: 70px;
+		margin-top: 12%;
+	}
+}
+
