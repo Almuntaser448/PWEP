@@ -42,38 +42,10 @@ function bouton() {
 	var b= '<input type="button" style="display:block; margin:auto; background-color:white; font-size:18px; color:green; border:1px solid green;" value="Valider" onclick="verif(re,te);">';
 	return b;
 }
-
-function verif(r, reponse) {
-	if(r==reponse) {
-		alert("Bonne réponse");
-		carte();
-	}
-	else {
-		alert("Mauvaise réponse");
-	}
-}
-
-function carte() {
-	mymap = L.map('map').setView([48.8582620692546,2.2944955763291],20);
-
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
-	}).addTo(mymap);
-}
-
-
-$(function(){
-    alert('jQuery est prêt !');
+function jarozer(r,reponse){
     var jaro_winkler = {};
-    var a='TOURifelle';
-    var b='tour eiffel';
-    //alert(jaro_winkler.distance("xer","auxers").val());
-    //alert('touvabien');;
+    var a=r;
+    var b=reponse;
  
      
      jaro_winkler.distance = function(a, b) {
@@ -211,9 +183,34 @@ $(function(){
        'Y': ' ', 
        'S': ' '
      }
-     //alert('toutvatoujoursbien');
      var resultat = jaro_winkler.distance(a,b)*100;
      var pourcentage= resultat + '%';
-     alert(pourcentage);
- });
- 
+     //alert(pourcentage);
+     return resultat;
+    }
+
+function verif(r, reponse) {
+  var resultatTest = jarozer(r,reponse);
+	if(resultatTest>=88) {
+		alert("Bonne réponse");
+		carte();
+	}
+	else {
+		alert("Mauvaise réponse");
+	}
+}
+
+function carte() {
+	mymap = L.map('map').setView([48.8582620692546,2.2944955763291],20);
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+}
+
+
