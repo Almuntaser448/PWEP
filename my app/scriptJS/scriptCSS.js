@@ -203,7 +203,7 @@ function jarozer(r,reponse){
 
 function verif(r, reponse) {
   var resultatTest = jarozer(r,reponse);
-	if(resultatTest>=88) {
+	if(resultatTest>=86) {
 		alert("Bonne réponse");
 		$("#Quizz").empty();
 		q.innerHTML = repquest();
