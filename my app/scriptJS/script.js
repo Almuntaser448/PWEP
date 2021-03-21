@@ -191,15 +191,24 @@ function jarozer(r,reponse){
 
 function verif(r, reponse) {
   var resultatTest = jarozer(r,reponse);
-	if(resultatTest>=88) {
-		alert("Bonne réponse");
-		carte();
-	}
-	else {
-		alert("Mauvaise réponse");
-	}
+  if(resultatTest==100) {
+    alert("Réponse exacte !");
+    $("#Quizz").empty();
+    q.innerHTML = repquest();
+    $("#map").addClass("map");
+    carte();
+  }
+  else if(resultatTest>=86) {
+    alert("Bonne réponse malgré une petite faute dans l'orthographe de la réponse !");
+    $("#Quizz").empty();
+    q.innerHTML = repquest();
+    $("#map").addClass("map");
+    carte();
+  }
+  else {
+    alert("Mauvaise réponse");
+  }
 }
-
 function carte() {
 	mymap = L.map('map').setView([48.8582620692546,2.2944955763291],20);
 
