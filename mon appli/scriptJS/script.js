@@ -1,3 +1,35 @@
+function setCookie(id,utili,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*60*60*100));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = id + "=" + utili + ";" + expires + ";path=/";
+}
+
+function getCookie(id) {
+  var r = id + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(r) == 0) {
+      return c.substring(r.length, c.length);
+    }
+  }
+  return "";
+}
+		
+function checkCookie() {
+	  var id = getCookie("1");
+	  if (id != "") {
+	   alert("Bon retour parmit nous :) ");
+	  } else {
+			alert("Nous sommes heureux de votre visite !");
+		}
+}
+
 var q; // référence le bloc d'affichage id="quizz
 var re;
 var te='Tour Eiffel';
