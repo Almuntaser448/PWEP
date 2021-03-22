@@ -40,6 +40,7 @@ var invite = "<p style='font-size:22px; text-align:center;'>Cliquez pour jouer</
 	
 	
 window.onload = function () {
+        checkCookie ();
 	q =  document.getElementById('Quizz'); //initialisation de q
 	lancer();
 }
